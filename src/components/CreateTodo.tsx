@@ -15,7 +15,6 @@ export const CreateTodo = () => {
 
         try {
             await addDoc(taskRef, {
-                taskID: crypto.randomUUID(),
                 content: task
             })
         }
