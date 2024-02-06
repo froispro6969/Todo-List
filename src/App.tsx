@@ -1,3 +1,4 @@
+import { CreateTodo } from "./components/CreateTodo"
 
 function App() {
 
@@ -5,7 +6,7 @@ function App() {
 
 
     <div className="App">
-      <p></p>
+      <CreateTodo></CreateTodo>
     </div>
 
   )
