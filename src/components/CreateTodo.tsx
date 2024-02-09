@@ -17,9 +17,10 @@ export const CreateTodo = () => {
             await addDoc(taskRef, {
                 content: task
             })
+            location.reload();
         }
         catch (err) {
-            console.log(err);
+            console.log("Error adding a new Task: ", err);
         }
     }
 
