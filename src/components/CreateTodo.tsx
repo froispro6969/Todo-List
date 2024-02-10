@@ -25,9 +25,14 @@ export const CreateTodo = () => {
     }
 
     return (
-        <div className="create-Todo">
+        <>
+        <div className="create-todo">
+            <button className="create-todo-btn">+</button>
+        </div>
+        {/* <div className="create-Todo">
             <input type="text" onChange={(e) => setTask(e.target.value)} />
             <button onClick={onCreateTask}>Create</button>
-        </div>
+        </div> */}
+        </>
     )
 }
