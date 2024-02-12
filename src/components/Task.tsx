@@ -45,19 +45,15 @@ export const Task = (props: Props) => {
         }
     }
 
-    const isChecked = async (id: string,isChecked: boolean) => {
+    const toggleCheckbox = async (id: string, isChecked: boolean) => {
         const taskDocRef = doc(db, "Todos", id);
-        if(isChecked) {
+        try {
             await updateDoc(taskDocRef, {
-                isChecked: false,
-            })
+                isChecked: !isChecked,
+            });
             location.reload();
-        }
-        else {
-            await updateDoc(taskDocRef, {
-                isChecked: true,
-            })
-            location.reload();
+        } catch (err) {
+            console.log("Error toggling checkbox: ", err);
         }
     }
    
@@ -71,7 +67,7 @@ export const Task = (props: Props) => {
                 </div>
                 :
                 <div className="task">
-                    <input type="checkbox" className="task-checkbox" checked={task.isChecked} onChange={()=>isChecked(task.taskID,task.isChecked)}/>
+                    <input type="checkbox" className="task-checkbox" checked={task.isChecked} onChange={()=>toggleCheckbox(task.taskID,task.isChecked)}/>
                     {task.isChecked ? <p className="task-content" style={{textDecoration: "line-through"}}>{task.content}</p>: <p className="task-content">{task.content}</p>}
                     <div className="task-buttons">
                         <button onClick={() => isTaskEditing()}><FontAwesomeIcon icon={faPen} className="task-buttons-penIcon"></FontAwesomeIcon></button>
