@@ -7,6 +7,7 @@ import { Task } from "./Task";
 export interface Task {
     taskID: string;
     content: string;
+    isChecked: boolean;
 }
 
 

@@ -45,7 +45,21 @@ export const Task = (props: Props) => {
         }
     }
 
-
+    const isChecked = async (id: string,isChecked: boolean) => {
+        const taskDocRef = doc(db, "Todos", id);
+        if(isChecked) {
+            await updateDoc(taskDocRef, {
+                isChecked: false,
+            })
+            location.reload();
+        }
+        else {
+            await updateDoc(taskDocRef, {
+                isChecked: true,
+            })
+            location.reload();
+        }
+    }
    
 
     return (
@@ -57,8 +71,8 @@ export const Task = (props: Props) => {
                 </div>
                 :
                 <div className="task">
-                    <input type="checkbox" className="task-checkbox"/>
-                    <p className="task-content">{task.content}</p>
+                    <input type="checkbox" className="task-checkbox" checked={task.isChecked} onChange={()=>isChecked(task.taskID,task.isChecked)}/>
+                    {task.isChecked ? <p className="task-content" style={{textDecoration: "line-through"}}>{task.content}</p>: <p className="task-content">{task.content}</p>}
                     <div className="task-buttons">
                         <button onClick={() => isTaskEditing()}><FontAwesomeIcon icon={faPen} className="task-buttons-penIcon"></FontAwesomeIcon></button>
                         <button onClick={() => removeTask(task.taskID)}><FontAwesomeIcon icon={faTrash} className="task-buttons-trashIcon"></FontAwesomeIcon></button>

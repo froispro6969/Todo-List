@@ -18,6 +18,7 @@ export const CreateTodo = () => {
         try {
             await addDoc(taskRef, {
                 content: task,
+                isChecked: false,
             })
             location.reload();
         }
