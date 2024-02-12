@@ -71,6 +71,40 @@ body {
     right: 0;
 }
 
+.addTodo-popup {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+}
+
+.createTodo-popup {
+    width: 600px;
+    height: 200px;
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.createTodo-popup-exit-btn {
+    outline: none;
+    border: none;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    right: 5px;
+}
+
 
 /*******************************TODO-LIST****************************/
 
@@ -93,10 +127,6 @@ body {
     cursor: pointer;
 }
 
-
-.task-checkbox::before:checked{
-    content: '\2713';
-}
 
 .task-content {
     font-size: 1.3rem;

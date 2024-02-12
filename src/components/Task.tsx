@@ -14,6 +14,7 @@ export const Task = (props: Props) => {
     const { task } = props;
     const [isEditing, setIsEditing] = useState(false);
     const [editedTask, setEditedTask] = useState("");
+    
 
 
     const removeTask = async (id: string) => {
@@ -35,7 +36,7 @@ export const Task = (props: Props) => {
         const taskDocRef = doc(db, "Todos", id);
         try {
             await updateDoc(taskDocRef, {
-                content: editedTask
+                content: editedTask,
             })
             location.reload();
         }
@@ -43,6 +44,9 @@ export const Task = (props: Props) => {
             console.log("Error updating task: ", err);
         }
     }
+
+
+   
 
     return (
         <>
