@@ -1,7 +1,7 @@
-import { CreateTodo } from "./components/CreateTodo"
-import { Header } from "./components/Header"
-import { TodoMain } from "./components/TodoMain"
+import { MainPage } from "./pages/MainPage"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import "./styles/App.css"
+import { Authentication } from "./pages/Authentication"
 
 function App() {
 
@@ -9,9 +9,12 @@ function App() {
 
 
     <div className="App">
-      <Header></Header>
-      <CreateTodo></CreateTodo>
-      <TodoMain></TodoMain>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Authentication/>}></Route>
+          <Route path="/main" element={<MainPage/>}></Route>
+        </Routes>
+      </Router>
     </div>
 
   )
