@@ -11,7 +11,6 @@ export function useAuth() {
 
 export function AuthProvider({ children }: { children?: React.ReactNode }) {
     const [currentUser, setCurrentUser] = useState(null);
-    const [userLoggedIn, setUserLoggedIn] = useState(false);
     const [loading, setLoading] = useState(true);
 
     
@@ -25,17 +24,14 @@ export function AuthProvider({ children }: { children?: React.ReactNode }) {
         if(user)
         {
             setCurrentUser({...user});
-            setUserLoggedIn(true);
         } else {
             setCurrentUser(null);
-            setUserLoggedIn(false);
         }
         setLoading(false);
     }
 
     const value = {
         currentUser,
-        userLoggedIn,
         loading
     }
 
