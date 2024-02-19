@@ -5,9 +5,11 @@ import { TodoMain } from "../components/TodoMain"
 export const MainPage = () => {
     return (
         <>
-            <Header></Header>
-            <CreateTodo></CreateTodo>
-            <TodoMain></TodoMain>
+            <div className="main-page">
+                <Header></Header>
+                <CreateTodo></CreateTodo>
+                <TodoMain></TodoMain>
+            </div>
         </>
     )
 }
